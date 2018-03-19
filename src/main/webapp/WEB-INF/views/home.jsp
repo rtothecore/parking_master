@@ -256,15 +256,23 @@
 				<div class="ui-bar ui-bar-a">
 				  <h3>행사정보</h3>
 				</div>
-				<div class="ui-body ui-body-a" id="festList">
-				<!-- 
-					<p>1. title - location</p>
-					<p>2. title - location</p>
-					<p>3. title - location</p>
-					<p>4. title - location</p>
-					<p>5. title - location</p>
-				 -->
-					<!-- <div id="chart5" class="plot" style="width:80%;height:80%;"></div> -->
+				<div class="ui-body ui-body-a">
+					<fieldset class="ui-grid-a">
+						<div class="ui-block-a">
+							<p id="fl_1t">1. title</p>
+							<p id="fl_2t">2. title</p>
+							<p id="fl_3t">3. title</p>
+							<p id="fl_4t">4. title</p>
+							<p id="fl_5t">5. title</p>
+						</div>
+						<div class="ui-block-b">
+							<p id="fl_1l" align="right">location</p>
+							<p id="fl_2l" align="right">location</p>
+							<p id="fl_3l" align="right">location</p>
+							<p id="fl_4l" align="right">location</p>
+							<p id="fl_5l" align="right">location</p>
+						</div>
+					</fieldset>
 				</div>
 			</div>
 			
@@ -345,12 +353,17 @@
 			success: function(data){
 				var parsedJson = JSON.parse(data['result']);
 				//console.log("SUCCESS: ", parsedJson);
-				tempHTML = "<p>" + parsedJson['rfcOpenApi']['body']['data']['list'][0]['title'] + " - " + parsedJson['rfcOpenApi']['body']['data']['list'][0]['location'] + "</p>";
-				tempHTML += "<p>" + parsedJson['rfcOpenApi']['body']['data']['list'][1]['title'] + " - " + parsedJson['rfcOpenApi']['body']['data']['list'][1]['location'] + "</p>";
-				tempHTML += "<p>" + parsedJson['rfcOpenApi']['body']['data']['list'][2]['title'] + " - " + parsedJson['rfcOpenApi']['body']['data']['list'][2]['location'] + "</p>";
-				tempHTML += "<p>" + parsedJson['rfcOpenApi']['body']['data']['list'][3]['title'] + " - " + parsedJson['rfcOpenApi']['body']['data']['list'][3]['location'] + "</p>";
-				tempHTML += "<p>" + parsedJson['rfcOpenApi']['body']['data']['list'][4]['title'] + " - " + parsedJson['rfcOpenApi']['body']['data']['list'][4]['location'] + "</p>";
-				$('#festList').html(tempHTML);
+				$('#fl_1t').html(parsedJson['rfcOpenApi']['body']['data']['list'][0]['title']);
+				$('#fl_2t').html(parsedJson['rfcOpenApi']['body']['data']['list'][1]['title']);
+				$('#fl_3t').html(parsedJson['rfcOpenApi']['body']['data']['list'][2]['title']);
+				$('#fl_4t').html(parsedJson['rfcOpenApi']['body']['data']['list'][3]['title']);
+				$('#fl_5t').html(parsedJson['rfcOpenApi']['body']['data']['list'][4]['title']);
+				
+				$('#fl_1l').html(parsedJson['rfcOpenApi']['body']['data']['list'][0]['location']);
+				$('#fl_2l').html(parsedJson['rfcOpenApi']['body']['data']['list'][1]['location']);
+				$('#fl_3l').html(parsedJson['rfcOpenApi']['body']['data']['list'][2]['location']);
+				$('#fl_4l').html(parsedJson['rfcOpenApi']['body']['data']['list'][3]['location']);
+				$('#fl_5l').html(parsedJson['rfcOpenApi']['body']['data']['list'][4]['location']);
 			},
 			error: function (e) {
 				console.log("ERROR: ", e);

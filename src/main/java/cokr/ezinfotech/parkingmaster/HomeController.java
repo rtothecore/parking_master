@@ -11,7 +11,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -220,7 +219,7 @@ public class HomeController {
 	}
 	
 	/**
-	 * Get air data with sido info
+	 * Get fest data with sido info
 	 */
 	@RequestMapping(value = "/getFestData", method = RequestMethod.POST)
 	public @ResponseBody FestVo getFestData(@RequestBody FestVo fv, HttpSession session) {
